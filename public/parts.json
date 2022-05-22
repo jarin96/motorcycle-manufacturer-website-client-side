@@ -1,0 +1,29 @@
+[
+    {
+        "_id": 1,
+        "name": "Wheels",
+        "img": "https://i.ibb.co/ByhB9CY/Motorcycle-Wheels.png",
+        "description": "Motorcycle wheels are made to cope with radial and axial forces.",
+        "minimumquantity": 300,
+        "availablequantity": 500,
+        "price": 75
+    },
+    {
+        "_id": 2,
+        "name": "Lighting",
+        "img": "https://i.ibb.co/NyrF0SJ/s02-img5-a.png",
+        "description": "LED lights are small, intensely bright, have extended lifespans, and draw very little current.",
+        "minimumquantity": 450,
+        "availablequantity": 800,
+        "price": 85
+    },
+    {
+        "_id": 3,
+        "name": "Intake & Exhausts",
+        "img": "https://i.ibb.co/7QtbvLt/Motorcycle-Muffler-545x363px2.png",
+        "description": "Intake & Exhaust is one of the most important parts of the motorcycle.",
+        "minimumquantity": 700,
+        "availablequantity": 1200,
+        "price": 120
+    }
+]
