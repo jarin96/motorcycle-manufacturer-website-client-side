@@ -47,13 +47,13 @@ const Summary = () => {
                     </div>
                 </div>
                 <div className='flex justify-center mt-4 my-10'>
-                    <div class="card lg:max-w-lg bg-base-100 shadow-xl">
-                        <div class="card-body items-center text-center">
-                            <h2 class="card-title">Request for Quote</h2>
+                    <div className="card lg:max-w-lg bg-base-100 shadow-xl">
+                        <div className="card-body items-center text-center">
+                            <h2 className="card-title">Request for Quote</h2>
                             <p>Have any Question about us or get a product request?</p>
                             <p>Don't hesitate to contact us</p>
-                            <div class="card-actions">
-                                <button class="btn btn-primary">Contact Us</button>
+                            <div className="card-actions">
+                                <button className="btn btn-primary">Contact Us</button>
                             </div>
                         </div>
                     </div>
