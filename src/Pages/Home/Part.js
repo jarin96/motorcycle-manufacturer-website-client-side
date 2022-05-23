@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Part = ({ part }) => {
     const { name, price, img, description, minimumquantity, availablequantity } = part;
@@ -12,7 +13,9 @@ const Part = ({ part }) => {
                 <p className='text-center'>Available Quantity: {availablequantity}</p>
                 <p className='text-center'>Price: ${price}</p>
                 <div className="card-actions justify-center">
-                    <button className="btn btn-outline">Button</button>
+                    <Link to='purchase'>
+                        <button className="btn btn-outline">Purchase</button>
+                    </Link>
                 </div>
             </div>
         </div>
