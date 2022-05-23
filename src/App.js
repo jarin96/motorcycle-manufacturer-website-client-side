@@ -7,6 +7,7 @@ import About from './Pages/About/About';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/Login/SignUp';
 import RequireAuth from './Pages/Login/RequireAuth';
+import Parts from './Pages/Home/Parts';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="Purchase" element={<RequireAuth>
+
+        <Route path="purchase/:id" element={<RequireAuth>
           <Purchase></Purchase>
         </RequireAuth>} />
         <Route path="login" element={<Login />} />
