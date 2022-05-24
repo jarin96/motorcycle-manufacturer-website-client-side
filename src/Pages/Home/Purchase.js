@@ -51,7 +51,7 @@ const Purchase = () => {
 
     const decreaseQuantity = (id) => {
         if (dQuantity > parts?.minimumquantity) {
-            alert('Minimum Quantity can not be negative');
+            alert('Minimum Quantity can not be Less than that');
             return;
         }
         else {
@@ -77,8 +77,24 @@ const Purchase = () => {
                 .then(data => console.log(data))
         }
     }
-
     const [user] = useAuthState(auth);
+    console.log(user);
+    // Place order
+    const orderPlace = () => {
+
+        // event.preventDefault();
+        // const address = event.target.address.value;
+        // console.log(user?.address);
+        if (user?.email || '') {
+            console.log('order successfull');
+            alert('Order Has been placed');
+        }
+        else {
+            alert('Order has been canceled');
+        }
+    }
+
+
     return (
         <div className='flex justify-center items-center mt-5 my-10'>
             <div class="card w-96 bg-base-100 shadow-xl">
@@ -111,7 +127,7 @@ const Purchase = () => {
                     <input disabled value={user?.email || ''} type="text" placeholder="Type here" class="input input-bordered input-primary w-full max-w-xs" />
                     <input type="address" placeholder="Address" class="input input-bordered input-primary w-full max-w-xs" />
                     <input type="phone" placeholder="Phone Number" class="input input-bordered input-primary w-full max-w-xs" />
-                    <button class="btn btn-active btn-primary">Place Order</button>
+                    <button onClick={() => orderPlace()} class="btn btn-active btn-primary">Place Order</button>
 
                 </div>
             </div>
