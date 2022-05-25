@@ -8,6 +8,9 @@ const Purchase = () => {
     const [parts, setParts] = useState({});
     const [dQuantity, setDquantity] = useState(0);
     const [iQuantity, setIquantity] = useState(0);
+    const [address, setAddress] = useState('');
+    const [number, setNumber] = useState(0);
+
 
 
     useEffect(() => {
@@ -80,18 +83,31 @@ const Purchase = () => {
     const [user] = useAuthState(auth);
     console.log(user);
     // Place order
-    const orderPlace = () => {
+    const orderPlace = (e) => {
+        const orderInfo = {
+            userName: user?.displayName,
+            email: user?.email,
+            address: address,
+            phoneNumber: number,
+            productId: parts?._id,
+            productName: parts?.name,
+            productDescription: parts?.description,
 
-        // event.preventDefault();
-        // const address = event.target.address.value;
-        // console.log(user?.address);
-        if (user?.email || '') {
-            console.log('order successfull');
-            alert('Order Has been placed');
         }
-        else {
-            alert('Order has been canceled');
-        }
+        fetch('http://localhost:5000/confirmOrder', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orderInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    alert('Order Placed Successfully');
+                    e.target.reset();
+                }
+            })
     }
 
 
@@ -125,8 +141,8 @@ const Purchase = () => {
                 <div class="card-body">
                     <input disabled type="text" value={user?.displayName || ''} placeholder="Type here" class="input input-bordered input-primary w-full max-w-xs" />
                     <input disabled value={user?.email || ''} type="text" placeholder="Type here" class="input input-bordered input-primary w-full max-w-xs" />
-                    <input type="address" placeholder="Address" class="input input-bordered input-primary w-full max-w-xs" />
-                    <input type="phone" placeholder="Phone Number" class="input input-bordered input-primary w-full max-w-xs" />
+                    <input onBlur={(e) => setAddress(e.target.value)} type="text" placeholder="Address" class="input input-bordered input-primary w-full max-w-xs" />
+                    <input onBlur={(e) => setNumber(e.target.value)} type="number" placeholder="Phone Number" class="input input-bordered input-primary w-full max-w-xs" />
                     <button onClick={() => orderPlace()} class="btn btn-active btn-primary">Place Order</button>
 
                 </div>

@@ -1,36 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import quote from '../../images/Icon/quote.svg';
 import people1 from '../../images/Banner/vicky-hladynets-C8Ta0gwPbQg-unsplash.jpg';
 import people2 from '../../images/Banner/jake-nackos-IF9TK5Uy-KI-unsplash.jpg';
 import people3 from '../../images/Banner/stefan-stefancik-QXevDflbl8A-unsplash.jpg';
 import Review from './Review';
 const Reviews = () => {
-    const reviews = [
-        {
-            _id: 1,
-            name: 'Vicky Hladynets',
-            review: 'We choose welbim for a number of reasons but mainly because welbim listens to technical feedback from installers.',
-            location: 'France',
-            ratings: 4.5,
-            img: people1
-        },
-        {
-            _id: 2,
-            name: 'Jake Nackos',
-            review: 'They provide excellient service to their customer.Welbim is my first choose as they provide the best quality service.',
-            location: 'California',
-            ratings: 4.0,
-            img: people2
-        },
-        {
-            _id: 3,
-            name: 'Stefan Stefancik',
-            review: 'Their service provided to customers was excellient.Welbim is always my first choose as they provide the best quality service.',
-            location: 'Italy',
-            ratings: 5,
-            img: people3
-        },
-    ];
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/findReview')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                setReviews(data)
+            })
+    }, [])
     return (
         <section className='my-28'>
             <div className='flex justify-between'>

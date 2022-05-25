@@ -13,7 +13,7 @@ const ProductRow = ({ product, index, email, refetch }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    toast.success(data);
                 })
         }
     }
