@@ -11,6 +11,7 @@ const Reviews = () => {
             name: 'Vicky Hladynets',
             review: 'We choose welbim for a number of reasons but mainly because welbim listens to technical feedback from installers.',
             location: 'France',
+            ratings: 4.5,
             img: people1
         },
         {
@@ -18,6 +19,7 @@ const Reviews = () => {
             name: 'Jake Nackos',
             review: 'They provide excellient service to their customer.Welbim is my first choose as they provide the best quality service.',
             location: 'California',
+            ratings: 4.0,
             img: people2
         },
         {
@@ -25,6 +27,7 @@ const Reviews = () => {
             name: 'Stefan Stefancik',
             review: 'Their service provided to customers was excellient.Welbim is always my first choose as they provide the best quality service.',
             location: 'Italy',
+            ratings: 5,
             img: people3
         },
     ];
