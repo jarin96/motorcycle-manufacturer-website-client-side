@@ -14,7 +14,7 @@ const Purchase = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/parts/${id}`)
+        fetch(`https://mysterious-crag-63654.herokuapp.com/parts/${id}`)
             .then(res => res.json())
             .then(data => {
                 setParts(data)
@@ -39,7 +39,7 @@ const Purchase = () => {
 
             }
             // console.log(newData);
-            fetch(`http://localhost:5000/updateQuantity/${id}`, {
+            fetch(`https://mysterious-crag-63654.herokuapp.com/updateQuantity/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
@@ -69,7 +69,7 @@ const Purchase = () => {
 
             }
             // console.log(newData);
-            fetch(`http://localhost:5000/updateQuantity/${id}`, {
+            fetch(`https://mysterious-crag-63654.herokuapp.com/updateQuantity/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
@@ -92,9 +92,10 @@ const Purchase = () => {
             productId: parts?._id,
             productName: parts?.name,
             productDescription: parts?.description,
+            productPrice: parts?.price,
 
         }
-        fetch('http://localhost:5000/confirmOrder', {
+        fetch('https://mysterious-crag-63654.herokuapp.com/confirmOrder', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -17,7 +17,7 @@ const MyProfile = () => {
             number: number,
             linkedin: linkedIn
         }
-        fetch('http://localhost:5000/addInfo', {
+        fetch('https://mysterious-crag-63654.herokuapp.com/addInfo', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

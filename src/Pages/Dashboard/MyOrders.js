@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const MyOrders = () => {
@@ -8,7 +9,7 @@ const MyOrders = () => {
     const [user] = useAuthState(auth);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrder/${user.email}`)
+        fetch(`https://mysterious-crag-63654.herokuapp.com/myOrder/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -18,7 +19,7 @@ const MyOrders = () => {
 
     const deleteProduct = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/deleteProduct/${id}`, {
+        fetch(`https://mysterious-crag-63654.herokuapp.com/deleteProduct/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
@@ -33,14 +34,6 @@ const MyOrders = () => {
                 }
             })
 
-
-
-
-
-
-
-
-
     }
     return (
         <div>
@@ -52,11 +45,11 @@ const MyOrders = () => {
                         <tr>
                             <th></th>
                             <th>Product Name</th>
-                            <th>Product Description</th>
                             <th>User Name</th>
                             <th>Email</th>
                             <th>Address</th>
                             <th>Action</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,11 +57,12 @@ const MyOrders = () => {
                             orders.map((order, index) => <tr>
                                 <th>{index + 1}</th>
                                 <td>{order.productName}</td>
-                                <td>{order.productDescription}</td>
                                 <td>{order.userName}</td>
                                 <td>{order.email}</td>
                                 <td>{order.address}</td>
                                 <td><button onClick={() => deleteProduct(order._id)} className='btn btn-danger' >Cancel</button></td>
+                                <td>{(order.productPrice && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}</td>
+                                <td>{(order.productPrice && order.paid) && <span className='text-success'>Paid</span>}</td>
                             </tr>)
                         }
 

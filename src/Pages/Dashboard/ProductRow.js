@@ -7,7 +7,7 @@ const ProductRow = ({ product, index, email, refetch }) => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you Sure?');
         if (proceed) {
-            const url = `http://localhost:5000/parts/${id}`;
+            const url = `https://mysterious-crag-63654.herokuapp.com/parts/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

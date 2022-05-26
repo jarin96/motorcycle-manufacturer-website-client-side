@@ -18,7 +18,7 @@ const Review = () => {
             rating: ratingRef.current.value,
             comment: reviewRef.current.value
         }
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://mysterious-crag-63654.herokuapp.com/addReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

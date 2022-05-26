@@ -5,7 +5,7 @@ const UpdateProfile = () => {
     const id = useParams()
     const [info, setInfo] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/updateProfile/${id}`)
+        fetch(`https://mysterious-crag-63654.herokuapp.com/updateProfile/${id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
